@@ -12,10 +12,10 @@ export default class ReactProject extends Component {
     return (
       <View >
         <Text >
-        test
+        test xxx
         </Text>
         <Text >
-          kong123
+          kong 123
         </Text>
        
       </View>
