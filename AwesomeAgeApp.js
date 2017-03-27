@@ -7,13 +7,35 @@ export default class AwesomeAgeApp extends Component {
         super(props);
         this.state = {
             age: ''
-        }
+        };
+        this._handleTextChange = this._handleTextChange.bind(this);
+        this._resetAgeInput = this._resetAgeInput.bind(this);
+          
     }
+
+    _handleTextChange(event) {
+        
+        let ageInput = event.nativeEvent.text
+        this.setState({age: ageInput});
+    }
+    
+    _resetAgeInput(){
+        this.setState({age: ''});
+    }
+
     render() {
+        var content = null
+
+        if (this.state.age != '') {
+            content = <Text style={styles.ageResult}>Your Age in Dog Years is: {this.state.age * 7}</Text>
+        } else {
+            content = <Text style={styles.instructions}>Your age in dog years will be displayed here</Text>
+        }
+
         return (
             <View style={styles.container}>
                 <Text style={styles.heading}>
-                    Age App!!
+                    Age Appx!!
                 </Text>
                 <Text style={styles.ageLabel}>
                     Enter Your Age :
@@ -21,7 +43,11 @@ export default class AwesomeAgeApp extends Component {
                 <TextInput
                     style={styles.ageInput}
                     returnKeyType='go'
-                    onSubmitEditing={this._handleTextChange}/>
+                    onSubmitEditing={this._handleTextChange}
+                    keyboardType='numeric'
+                    autoFocus={true}
+                    onFocus={this._resetAgeInput}/>
+                    {content}
             </View>
         );
     }
@@ -43,6 +69,7 @@ const styles = StyleSheet.create({
     },
     ageInput: {
         height: 50,
+        width : 120,
         marginTop: 10,
         padding: 4,
         fontSize: 18,
@@ -61,6 +88,14 @@ const styles = StyleSheet.create({
         padding: 4,
         margin: 10,
         marginTop: 20
+    },
+    instructions : {
+        fontSize: 14,
+        textAlign : 'center',
+        color : '#333333',
+        marginBottom : 5,
+        marginTop : 5,
+
     }
 })
 
