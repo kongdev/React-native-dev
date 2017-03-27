@@ -15,7 +15,7 @@ export default class ReactProject extends Component {
         test xxx
         </Text>
         <Text >
-          kong 123 zzz
+          xxkong 123 zzz
         </Text>
        
       </View>
