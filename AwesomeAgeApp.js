@@ -1,6 +1,37 @@
 import React, {Component} from 'react';
 import {AppRegistry, StyleSheet, Text, TextInput, View} from 'react-native';
 
+class Em extends Component {
+
+    render() {
+        return (
+            <Text style={styles.italic}>
+                {this.props.children}
+            </Text>
+        )
+    }
+
+}
+
+class Strong extends Component{
+    render () {
+        return (
+            <Text style={styles.bold}>
+                {this.props.children}
+            </Text>
+        )
+    }
+}
+
+class H1 extends Component{
+    render(){
+        return (
+            <Text style={styles.heading}>
+                {this.props.children}
+            </Text>
+        )
+    }
+}
 export default class AwesomeAgeApp extends Component {
 
     constructor(props) {
@@ -34,8 +65,13 @@ export default class AwesomeAgeApp extends Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.heading}>
-                    Age Appx!!
+                <H1>
+                    <Strong>Age Appx!!</Strong>
+                </H1>
+                <Text style={styles.subHeading}>
+                    <Em>Have Fun finding</Em> 
+                    <Text style={styles.italic}>your age</Text>
+                    <Text style={styles.bold}>in dog years!</Text>
                 </Text>
                 <Text style={styles.ageLabel}>
                     Enter Your Age :
@@ -49,7 +85,7 @@ export default class AwesomeAgeApp extends Component {
                     onFocus={this._resetAgeInput}/>
                     {content}
             </View>
-        );
+        )
     }
 }
 
@@ -96,6 +132,20 @@ const styles = StyleSheet.create({
         marginBottom : 5,
         marginTop : 5,
 
+    },
+    subHeading:{
+        fontSize : 24,
+        textAlign :'center',
+        color : '#0000CC',
+
+    },
+    bold:{
+        fontWeight : 'bold',
+        fontSize : 20,
+    },
+    italic : {
+        fontStyle : 'italic',
+        fontSize:15,
     }
 })
 
