@@ -3,17 +3,14 @@ import {AppRegistry, StyleSheet, Text, TextInput, View} from 'react-native';
 import Style from './Style';
 import InputButton from './InputButton';
 
+
+
 const inputButtons = [
-    [
-        1, 2, 3, '/'
-    ],
-    [
-        4, 5, 6, '*'
-    ],
-    [
-        7, 8, 9, '-'
-    ],
-    [0, '.', '=', '+']
+    ['ce','c','%','del'],
+    [7,8,9,'/'],
+    [4,5,6,'*'],
+    [1,2,3,'-'],
+     [0, '.', '=', '+']
 ];
 export default class CalculatorApp extends Component {
     constructor(props) {
@@ -60,8 +57,9 @@ export default class CalculatorApp extends Component {
 
         this.setState({inputValue: inputValue});
     }
-
+	
     _handleStringInput(str) {
+        
         switch (str) {
             case '/':
             case '*':
